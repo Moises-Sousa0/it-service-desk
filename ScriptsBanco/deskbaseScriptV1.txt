@@ -1,0 +1,45 @@
+CREATE TABLE deskbase;
+
+
+CREATE TABLE categoria (
+	id SERIAL PRIMARY KEY,
+	nome varchar(30) UNIQUE NOT NULL	
+	
+)
+
+CREATE TABLE usuario (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(30) NOT NULL,
+	email VARCHAR(254) UNIQUE NOT NULL,
+	cargo VARCHAR(30) CHECK (cargo IN('ADMIN', 'FUNCIONARIO', 'TECNICO')) NOT NULL,
+	data_criacao TIMESTAMPTZ DEFAULT NOW()
+)
+
+CREATE TABLE chamado (
+	id SERIAL PRIMARY KEY,
+	titulo VARCHAR(60) NOT NULL,
+	descricao TEXT NOT NULL,
+	solicitante_id INTEGER NOT NULL,
+	responsavel_id INTEGER,
+	status VARCHAR(30) CHECK (status IN ('ABERTO', 'EM_ATENDIMENTO', 'FECHADO')) NOT NULL DEFAULT 'ABERTO',
+	categoria_id INTEGER NOT NULL,
+	prioridade_solicitada VARCHAR(30) CHECK (prioridade_solicitada IN ('BAIXA', 'MEDIA', 'ALTA', 'CRITICA')) NOT NULL,
+	prioridade_final VARCHAR(30) CHECK (prioridade_final IN ('BAIXA', 'MEDIA', 'ALTA', 'CRITICA')),
+	data_criacao TIMESTAMPTZ DEFAULT NOW(),
+
+	FOREIGN KEY (solicitante_id) REFERENCES usuario(id),
+	FOREIGN KEY (responsavel_id) REFERENCES usuario(id),
+	FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+)
+
+
+CREATE TABLE nota (
+	id SERIAL PRIMARY KEY,
+	texto TEXT NOT NULL,
+	autor_id INTEGER NOT NULL,
+	chamado_id INTEGER NOT NULL,
+	data_criacao TIMESTAMPTZ DEFAULT NOW(),
+
+	FOREIGN KEY (autor_id) REFERENCES usuario(id),
+	FOREIGN KEY (chamado_id) REFERENCES chamado(id)
+);

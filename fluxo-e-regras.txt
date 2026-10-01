@@ -1,0 +1,104 @@
+# ANOTAÇÕES INICIAIS — HELPDESK
+
+- OBJETIVO
+  Sistema de Help Desk pra registrar problemas de TI e acompanhar o atendimento até o fechamento do chamado.
+
+
+
+---------------------------------
+- *ABERTURA DO CHAMADO*
+
+- Funcionário fica como solicitante do chamado. No futuro isso vem da conta logada.
+
+- Título curto do problema.
+
+- Descrição do problema.
+
+- A descrição original não é alterada durante o atendimento.
+
+- Categoria obrigatória.
+
+- Opção padrão: "Não sei / desconhecida".
+
+- Categorias iniciais: Rede, Sistema, Periférico, Computador e Não sei / desconhecida.
+
+- Funcionário informa a prioridade que considera necessária: Baixa, Média, Alta ou Crítica.
+
+- Técnico define a prioridade final depois de analisar o chamado.
+
+- Prioridade solicitada e prioridade final são coisas separadas.
+
+- Anexos/fotos ficam fora do MVP.
+
+
+
+---------------------------------
+- *STATUS E FLUXO*
+
+- **ABERTO → EM_ATENDIMENTO → FECHADO**
+
+- Chamado novo = **ABERTO** + sem técnico responsável.
+
+- Técnico assume = vira responsável + status **EM_ATENDIMENTO**.
+
+- Técnico fecha = status **FECHADO**.
+
+- Não vai existir **RESOLVIDO** na primeira versão.
+
+- Fechado = atendimento encerrado.
+
+- O resultado do atendimento fica registrado nas notas.
+
+
+
+---------------------------------
+- *NOTAS / COLABORAÇÃO*
+
+- Descrição inicial continua salva e não é substituída pelas notas.
+
+- Técnicos podem adicionar várias notas no mesmo chamado.
+
+- Cada nota é uma atualização, sem apagar as anteriores.
+
+- Outros técnicos também podem adicionar notas.
+
+- Só o técnico responsável pode fechar o chamado.
+
+- Nota final: explicar o que foi feito + resultado.
+
+- Mesmo se o problema não for resolvido, isso deve aparecer na nota final.
+
+- Cada nota salva o texto e a data/hora de criação.
+
+- Quando tiver autenticação, a nota também fica associada ao técnico que criou.
+
+
+
+---------------------------------
+- *PRIORIDADE*
+
+- Prioridade solicitada = urgência percebida pelo funcionário.
+
+- Prioridade final = definida pelo técnico depois da avaliação.
+
+- Valores das duas: Baixa, Média, Alta e Crítica.
+
+
+---------------------------------
+- *FORA DO MVP*
+
+- Fotos e outros anexos.
+
+- Autenticação/autorização completas.
+
+- A estrutura já deve permitir associar pessoas às contas de usuário no futuro.
+
+- Histórico/auditoria além das notas.
+
+- SLA.
+
+- Dashboard.
+
+- Integrações.
+
+- OBS: essas são as decisões iniciais do MVP, então podem mudar.
