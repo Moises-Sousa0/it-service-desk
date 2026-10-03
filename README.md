@@ -1,7 +1,6 @@
 # IT Service Desk
 
 
-
 Sistema de Help Desk para suporte de TI, desenvolvido como projeto de estudo e portfólio.
 
 ## Tecnologias
