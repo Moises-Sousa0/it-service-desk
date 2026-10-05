@@ -12,7 +12,7 @@ Sistema de Help Desk para suporte de TI, desenvolvido como projeto de estudo e p
 - Vue.js
 - Docker
 
-## Sobre o projeto
+## Sobre o projeto 
 
 A aplicação tem como objetivo permitir o gerenciamento de chamados de suporte de TI, envolvendo usuários, categorias, chamados e interações relacionadas ao atendimento.
 
